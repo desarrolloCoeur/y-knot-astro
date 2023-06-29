@@ -1,0 +1,49 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import NavbarMain from "./NavbarMain";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<NavbarMain
+  inicio={t("nav.home")}
+  pesca={t("nav.fishing")}
+  tours={t("nav.tour")}
+  ubicaciones={t("nav.locations")}
+  nosotros={t("nav.about")}
+  contacto={t("nav.contact")}
+/>
+
+<ul>
+  <li>
+    <a href={`/${lang}/`}>
+      {t("nav.home")}
+    </a>
+  </li>
+  <li>
+    <a href={`/${lang}/fishing/`}>
+      {t("nav.fishing")}
+    </a>
+  </li>
+  <li>
+    <a href="https://twitter.com/astrodotbuild">
+      {t("nav.tour")}
+    </a>
+  </li>
+  <li>
+    <a href="https://twitter.com/astrodotbuild">
+      {t("nav.locations")}
+    </a>
+  </li>
+  <li>
+    <a href="https://twitter.com/astrodotbuild">
+      {t("nav.about")}
+    </a>
+  </li>
+  <li>
+    <a href="https://twitter.com/astrodotbuild">
+      {t("nav.contact")}
+    </a>
+  </li>
+</ul>
