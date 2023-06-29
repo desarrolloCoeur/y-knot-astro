@@ -1,11 +1,12 @@
 import { useState } from "preact/hooks";
 
 const NavbarMain = ({inicio, pesca, tours, ubicaciones, nosotros, contacto}) => {
-    const [isTourOpen, setTourOpen] = useState();
-    const [isTourOpenMobile, setTourOpenMobile] = useState();
-    const [isMenuOpen, setMenuOpen] = useState();
+    const [isTourOpen, setTourOpen] = useState(false);
+    const [isTourOpenMobile, setTourOpenMobile] = useState(false);
+    const [isMenuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
+        console.log(isMenuOpen);
         setMenuOpen(!isMenuOpen);
     };
 
@@ -23,6 +24,7 @@ const NavbarMain = ({inicio, pesca, tours, ubicaciones, nosotros, contacto}) => 
                 <div class="container mx-auto flex w-full justify-between items-center font-normal px-3">
                     <div>ENG | ESP</div>
                     <div class="flex gap-2 text-lg" >
+                    
                         {/* <FaFacebook class="text-white"/>
                         <FaInstagram class="text-white"/>
                         <FaTripadvisor class="text-white"/>
@@ -53,6 +55,13 @@ const NavbarMain = ({inicio, pesca, tours, ubicaciones, nosotros, contacto}) => 
                         <a href="/contacto">{contacto}</a>
                     </div>
                     <div class="md:hidden">
+                    <a class="menu-btn" onClick={() => toggleMenu()}>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white bg-blue-950 px-1 py-1 text-4xl mr-2 rounded-md">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </a>
+
                         {/* <FaBars
                             class="text-white bg-blue-950 px-2 py-1 text-4xl mr-2 rounded-md"
                             onClick={toggleMenu}
