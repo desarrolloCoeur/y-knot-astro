@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-950 border-blue-950 border-4 text-white rounded-lg shadow-md hover:bg-blue-800 hover:border-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-800 focus:ring-opacity-75;
+  }
+  .btn-secondary {
+    @apply py-2 px-4 border-blue-950 border-4 text-white rounded-lg shadow-md hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+  h1{
+    @apply text-5xl text-blue-950 font-bold my-3 uppercase 
+  }
+  h2{
+    @apply text-4xl text-blue-950 font-semibold mt-3 mb-8 uppercase 
+  }
+  h3{
+    @apply text-2xl text-blue-950 font-semibold my-3  
+  }
+  h4{
+    @apply text-xl text-blue-950 font-semibold my-3  
+  }
+  p{
+    @apply pb-3
+  }
+  body{
+    @apply text-base font-light
+  }
+
+  a, button{
+    @apply font-semibold
+  }
+
+  input{
+    @apply border-2 border-blue-950 rounded-md px-2 py-2
+  }
+  
+  svg{
+    @apply text-blue-950
+
+  }
+  
+}
+
+
+
+:root {
+
+}
+html {
+    font-family: system-ui, sans-serif;
+
+}
+code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+        Bitstream Vera Sans Mono, Courier New, monospace;
+}

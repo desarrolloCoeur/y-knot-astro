@@ -1,0 +1,72 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang)
+---
+<footer class="w-full bg-slate-100 mt-16 pt-10">
+    <div class="container mx-auto w-11/12 flex flex-col md:flex-row flex-wrap lg:flex-nowrap">
+        <div class="md:w-1/2 lg:w-1/4 flex flex-col items-start gap-1 mb-10 pr-3">
+            <img
+                src="/img/logo-knot.webp"
+                alt="Knot Fishing & Jetski Rental Logo"
+                width={200}
+                height={120}
+            />
+            <p>
+            {t('footer.description')}
+
+
+            </p>
+            <a href="https://fishingbooker.com/charters/view/16243" target="_blank" class="hover:scale-[1.010]">
+                <div class="bg-[#2080BF] rounded-md px-2 py-2">
+                    <img src="/img/fishing-booker.svg" alt="Fishing Booker - Y-knot Fihshing & Jetski Rental" width={120} height={100}/>
+                    <p class="pb-0">⭐⭐⭐⭐⭐</p>
+                    <p class="text-sm  font-bold text-white pb-0 uppercase">Y-knot Fishing & Seadoos</p>
+                </div>
+            </a>
+        </div>
+        <div class="md:w-1/2 lg:w-1/4 flex flex-col items-start gap-1 mb-10 pr-3">
+            <h3>{t('footer.contact')}</h3>
+            <a href="mailto:info@gofishpuntamita.com" class="flex items-center gap-3"><!-- <FaEnvelope /> --> info@gofishpuntamita.com</a>
+            <a href="https://wa.me/+523221351204" class="flex items-center gap-3 mt-2"><!-- <FaWhatsapp class="text-lg"/> --> WhatsApp</a>
+            <div class="flex flex-row gap-3 items-start mt-2">
+                <!-- <FaPhone class="mt-[5px]"/> -->
+                <div class="flex flex-col">
+                    <a href="tel:+523221351204">+52 322 135 1204</a>
+                    <a href="tel:+523222984295">+52 322 298 4295</a>
+                </div>
+            </div>
+   
+        </div>
+        <div class="md:w-1/2 lg:w-1/4 flex flex-col items-start gap-1 mb-10 pr-3">
+            <h3>{t('footer.about')}</h3>
+            <div class="flex flex-col gap-1">
+                <a href="/tours/jet-ski-rental">{t('footer.jetski')}</a>
+                <a href="/pesca-deportiva">{t('footer.fishing')}</a>
+                <a href="/tours">{t('footer.tours')}</a>
+                <a href="/contacto">{t('footer.contact')}</a>
+                <a href="tel:+523221351204">{t('footer.private')}</a>
+            </div>
+        </div>
+        <div class="md:w-1/2 lg:w-1/4 flex flex-col items-start gap-1 mb-10 pr-3">
+            <h3>{t('footer.location')}</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3730.4894710822314!2d-105.51939772415429!3d20.77147678081425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8421130a4780c45d%3A0xf5720f0d2870a811!2sYKnot%20Fishing%20and%20SeaDoos!5e0!3m2!1sen!2smx!4v1684347219929!5m2!1sen!2smx" width="100%" height="250"  loading="lazy" ></iframe>
+        </div>
+    </div>
+    
+
+    <div class="bg-blue-950 py-1">
+        <div class="container mx-auto flex justify-between items-center">
+            <label class="text-white text-sm">
+                Y-Knot fishing & Jet-ski rentals - 2023 | Developed
+                by CoeurMkt
+            </label>
+            <img
+                src="/img/visamastercard.gif"
+                alt="Visa & Mastercard"
+                width={80}
+                height={50}
+            />
+        </div>
+    </div>
+</footer>

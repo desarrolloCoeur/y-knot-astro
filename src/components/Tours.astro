@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+
+
+const {title} = Astro.props;
+const tours = await getCollection('tour' , ({id}) => {
+    return id.startsWith(`${lang}/`)
+})
+
+
+
+---
+
+<div class="container mx-auto my-10" id="tours">
+    <h2 class="">{title} </h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+        {tours.map((tour, i) => {
+            const fullLink = tour.slug;
+            const parts = fullLink.split('/');
+            const link = parts[1]; 
+
+            return (
+                <div
+                    class="bg-slate-100 shadow-md transition-all hover:shadow-2xl hover:scale-[1.009] rounded-md"
+                >
+                    <img
+                        src={tour.data.imageSlider}
+                        height={300}
+                        width={400}
+                        alt={tour.data.shortDescription}
+                        class="h-[350px] w-full object-cover  object-center rounded-t-md"
+                    />
+
+                    <div class="px-5 pb-10 pt-2 ">
+                        <h3>{tour.data.title}</h3>
+                        <div class="flex gap-5 flex-row mb-2 -mt-1">
+                            <label class="flex flex-row items-center gap-1"> {tour.data.time}</label>
+                        </div>
+                        <p>{tour.data.shortDescription}</p>
+                        <div class="mb-3">
+                            <label></label>
+                        </div>
+                        <a
+                            class="btn-primary"
+                            href={link}
+                        >
+                            {t("tour.button")}
+                        </a>
+                    </div>
+                </div>
+            );
+        })}
+    </div>
+</div>

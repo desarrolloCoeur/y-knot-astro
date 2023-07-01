@@ -1,6 +1,6 @@
 ---
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import NavbarMain from "./NavbarMain";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import NavbarMain from './NavbarMain';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -16,7 +16,7 @@ const t = useTranslations(lang);
   client:load
 />
 
-<ul>
+<!-- <ul>
   <li>
     <a href={`/${lang}/`}>
       {t("nav.home")}
@@ -48,3 +48,4 @@ const t = useTranslations(lang);
     </a>
   </li>
 </ul>
+ -->
