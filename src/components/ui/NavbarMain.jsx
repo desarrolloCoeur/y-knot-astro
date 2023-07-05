@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 
-const NavbarMain = ({inicio, pesca, tours, ubicaciones, nosotros, contacto}) => {
+const NavbarMain = ({inicio, pesca, tours, ubicaciones, nosotros, contacto, lang}) => {
     const [isTourOpen, setTourOpen] = useState(false);
     const [isTourOpenMobile, setTourOpenMobile] = useState(false);
     const [isMenuOpen, setMenuOpen] = useState(false);
@@ -22,7 +22,7 @@ const NavbarMain = ({inicio, pesca, tours, ubicaciones, nosotros, contacto}) => 
         <>
             <div class="bg-blue-950 text-white">
                 <div class="container mx-auto flex w-full justify-between items-center font-normal px-3">
-                    <div>ENG | ESP</div>
+                    <div> <a href="/en">ENG</a> | <a href="/es"> ESP </a></div>
                     <div class="flex gap-2 text-lg" >
                     
                         {/* <FaFacebook class="text-white"/>
@@ -37,7 +37,7 @@ const NavbarMain = ({inicio, pesca, tours, ubicaciones, nosotros, contacto}) => 
             <header class="w-full relative text-blue-950 bg-slate-100">
                 <div class="flex justify-between px-2 py-2 items-center container w-full mx-auto">
                     <div>
-                        <a href="/">
+                        <a href={`/${lang}`}>
                             <img
                                 src="/img/logo-knot.webp"
                                 alt="Knot Fishing & Jetski Rental Logo"
@@ -47,16 +47,15 @@ const NavbarMain = ({inicio, pesca, tours, ubicaciones, nosotros, contacto}) => 
                         </a>
                     </div>
                     <div class="md:flex items-center gap-7 uppercase hidden ">
-                        <a href="/">{inicio}</a>
-                        <a href="/pesca-deportiva">{pesca}</a>
+                        <a href={`/${lang}`}>{inicio}</a>
+                        <a href="/es/pesca-deportiva">{pesca}</a>
                         <button onClick={toggleTours} class="uppercase">{tours}</button>
-                        <a href="/ubicaciones">{ubicaciones}</a>
-                        <a href="/nosotros">{nosotros}</a>
-                        <a href="/contacto">{contacto}</a>
+                        <a href="/es/ubicacion">{ubicaciones}</a>
+                        <a href="/es/nosotros">{nosotros}</a>
+                        <a href="/es/contacto">{contacto}</a>
                     </div>
                     <div class="md:hidden">
                     <a class="menu-btn" onClick={() => toggleMenu()}>
-
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white bg-blue-950 px-1 py-1 text-4xl mr-2 rounded-md">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
@@ -78,7 +77,7 @@ const NavbarMain = ({inicio, pesca, tours, ubicaciones, nosotros, contacto}) => 
                         >
                             Inicio
                         </a>
-                        <a href="/pesca-deportiva" onClick={toggleMenu}>Pesca</a>
+                        <a href="/pesca-deportiva" onClick={toggleMenu} class="uppercase">Pesca</a>
 
                         <button
                             onClick={toggleTourMobile}

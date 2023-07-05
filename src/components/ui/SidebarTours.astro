@@ -1,40 +1,51 @@
 ---
 import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
 const {title} = Astro.props;
-const toursData = await getCollection('tour' , ({id}) => {
-    return id.startsWith('es/')
+
+const lang = getLangFromUrl(Astro.url);
+
+const tours = await getCollection('tour' , ({id}) => {
+    return id.startsWith(`${lang}/`)
 })
-console.log(toursData);
+
+const buttonText = lang === 'en' ? 'View Tour' : 'Ver Tour';
+
 ---
 
 <div class="container mx-auto my-10" id="tours">
-    <h2 class="-mt-6 font-bold">{title} </h2>
+    <h2 class="-mt-6 font-bold">{title}</h2>
     <div class="flex flex-col gap-5">
-        <!-- {toursData.tours.map((tour) => {
+        {tours.map((tour) => {
+
+            const fullLink = tour.slug;
+            const parts = fullLink.split('/');
+            const link = parts[1]; 
             return (
                 <div
                     class="bg-slate-100 shadow-md transition-all hover:shadow-2xl hover:scale-[1.009] rounded-md flex gap-2"
                 >
                     <img
-                        src={tour.imgSlider}
+                        src={tour.data.imageSlider}
                         height={100}
                         width={200}
-                        alt={tour.shortDescription}
+                        alt={tour.data.shortDescription}
                         class="w-1/3 object-cover  object-center rounded-l-md"
                     />
 
                     <div class="px-5 pb-10 pt-2 ">
-                        <h3>{tour.title}</h3>
+                        <h3>{tour.data.title}</h3>
                         <p class="-mt-2 mb-2">⭐⭐⭐⭐⭐</p>
                         <a
                             class="btn-primary"
-                            href={`/tours/${tour.slug}`}
+                            href={`/${lang}/tour/${link}`}
                         >
-                            VER TOUR
+                            {buttonText}
                         </a>
                     </div>
                 </div>
             );
-        })} -->
+        })}
     </div>
 </div>

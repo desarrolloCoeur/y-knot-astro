@@ -1,0 +1,187 @@
+---
+import SidebarTours from '../../../components/ui/SidebarTours.astro';
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content'
+
+export async function getStaticPaths() {
+
+  const pages = await getCollection('location')
+
+    const paths = pages.map(page => {
+      const [lang, ...slug] = page.slug.split('/');
+
+      const locationLang = lang === 'en' ? 'location' : 'ubicacion';
+      
+      const path = `/${lang}/${locationLang}/${slug.join('/')}`;
+
+      return [
+        { params: { lang, locationLang, slug: slug.join('/') || undefined }, path, props: page },
+      ];
+  })
+
+  return paths;
+
+}
+
+const { lang, slug } = Astro.params;
+const page = Astro.props;
+
+const { Content } = await page.render();
+
+const mainBtn = lang === 'es' ? 'Reservar!' : 'Book Now!';
+const secondaryBtn = lang === 'es' ? 'Mas Info' : 'More Info';
+const jetskiTitle = lang === 'es' ? 'Renta de Jetski!' : 'Jetski Rentals!';
+const boatsTitle = lang === 'es' ? 'Nuestras Embarcaciones Disponibles!' : 'Our Available Boats!';
+const sidebarTitle = lang === 'es' ? 'Descubre Nuevas Experiencias!' : 'Discover New Experiences!';
+
+---
+
+<Layout title={page.data.title}>
+  <>
+  <img
+      src={page.data.hero}
+      alt={page.data.title}
+      width={1920}
+      height={700}
+      class="h-[600px] object-cover object-center"
+  />
+  <div class="container mx-auto w-11/12 mt-5">
+      <div class="flex flex-wrap gap-5 md:flex-nowrap">
+          <div class="w-full md:w-2/3">
+              <h1>{page.data.title}</h1>
+
+              <p>{page.data.large}</p>
+
+              <img
+                  src={page.data.image}
+                  alt={page.data.title}
+                  width={900}
+                  height={700}
+                  class="object-cover w-full"
+              />
+          </div>
+          <div class="w-full md:w-2/5">
+              <SidebarTours title={sidebarTitle}/>
+          </div>
+      </div>
+
+      {slug === "anclote" ||
+      slug == "punta-de-mita" ||
+      slug == "kupuri" ||
+      slug === "sayulita" ? (
+          <div
+              class="bg-cover bg-center rounded-md h-[500px] p-5 my-10 flex items-end"
+              style="background-image: url('/img/jet-ski-11.jpg')"
+                 
+          >
+              <div>
+                  <h2 class="text-6xl font-bold text-white bg-blue-950 p-3 rounded-md">
+                      {jetskiTitle}
+                  </h2>
+                  <div class="flex gap-3">
+                      <a
+                          href="tel:+523221351204"
+                          class="btn-primary"
+                      >
+                          {mainBtn}
+                      </a>
+                      <a
+                          href="https://wa.me/+523221351204"
+                          class="btn-primary"
+                      >
+                          {secondaryBtn}
+                      </a>
+                  </div>
+              </div>
+          </div>
+      ) : null}
+
+      {slug === "marina-vallarta" ||
+      slug === "cruz-de-huanacaxtle" ||
+      slug === "anclote" ? (
+          <div>
+              <h2>{boatsTitle}</h2>
+              <div class="container grid gap-10 md:grid-cols-3 md:gap-3">
+                  <div>
+                      <img
+                          src="/img/y-knot-2.webp"
+                          alt="Hydrocat"
+                          width={500}
+                          height={500}
+                          class="h-72 object-cover"
+                      />
+                      <h3 class="uppercase text-3xl">Hydrocat</h3>
+                      <div class="flex gap-3">
+                          <a
+                              href="tel:+523221351204"
+                              class="btn-primary"
+                          >
+                              {mainBtn}
+                          </a>
+                          <a
+                              href="https://wa.me/+523221351204"
+                              class="btn-primary"
+                          >
+                              {secondaryBtn}
+                          </a>
+                      </div>
+                  </div>
+                  <div>
+                      <img
+                          src="/img/kokomo.webp"
+                          alt="Kokomo"
+                          width={500}
+                          height={500}
+                          class="h-72 object-cover"
+                      />
+                      <h3 class="uppercase text-3xl">Kokomo</h3>
+                      <div class="flex gap-3">
+                          <a
+                              href="tel:+523221351204"
+                              class="btn-primary"
+                          >
+                              {mainBtn}
+                          </a>
+                          <a
+                              href="https://wa.me/+523221351204"
+                              class="btn-primary"
+                          >
+                              {secondaryBtn}
+                          </a>
+                      </div>
+                  </div>
+
+                  {slug === "anclote" ? (
+                      <div>
+                          <img
+                              src="/img/y-knot-1.webp"
+                              alt="Y-KNOT-1"
+                              width={500}
+                              height={500}
+                              class="h-72 object-cover"
+                          />
+                          <h3 class="uppercase text-3xl">
+                              Y-KNOT I
+                          </h3>
+                          <div class="flex gap-3">
+                              <a
+                                  href="tel:+523221351204"
+                                  class="btn-primary"
+                              >
+                                  {mainBtn}
+                              </a>
+                              <a
+                                  href="https://wa.me/+523221351204"
+                                  class="btn-primary"
+                              >
+                                  {secondaryBtn}
+                              </a>
+                          </div>
+                      </div>
+                  ) : null}
+              </div>
+          </div>
+      ) : null}
+  </div>
+</>
+</Layout>

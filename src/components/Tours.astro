@@ -6,14 +6,11 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-
-
 const {title} = Astro.props;
+
 const tours = await getCollection('tour' , ({id}) => {
     return id.startsWith(`${lang}/`)
 })
-
-
 
 ---
 
@@ -24,7 +21,7 @@ const tours = await getCollection('tour' , ({id}) => {
             const fullLink = tour.slug;
             const parts = fullLink.split('/');
             const link = parts[1]; 
-
+            
             return (
                 <div
                     class="bg-slate-100 shadow-md transition-all hover:shadow-2xl hover:scale-[1.009] rounded-md"
@@ -48,7 +45,7 @@ const tours = await getCollection('tour' , ({id}) => {
                         </div>
                         <a
                             class="btn-primary"
-                            href={link}
+                            href={`/${lang}/tour/${link}`}
                         >
                             {t("tour.button")}
                         </a>

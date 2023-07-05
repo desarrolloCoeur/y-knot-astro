@@ -1,0 +1,9 @@
+---
+    title: "La historia detrás de la pesca deportiva en Puerto Vallarta"
+    short : "Conoce la historia y tradición de la pesca deportiva en esta hermosa ciudad costera."
+    ftimg : "/img/pesca-deportiva-vallarta.jpeg"
+    author: "Y-Knot"
+    date: "15-Abril-2023"
+    content: ["La pesca deportiva es una actividad muy popular en Puerto Vallarta, que ha atraído a pescadores de todo el mundo durante décadas. Pero ¿cómo se convirtió Puerto Vallarta en un destino de pesca de clase mundial?","La historia de la pesca deportiva en Puerto Vallarta se remonta a la década de 1950, cuando un grupo de pescadores estadounidenses descubrió la abundancia de peces en las aguas de la bahía de Banderas. Estos pescadores se enamoraron de la pesca en la bahía y comenzaron a regresar año tras año.","En la década de 1960, el gobierno de México comenzó a construir infraestructura turística en Puerto Vallarta, y la pesca deportiva se convirtió en una atracción popular para los turistas. En ese momento, Puerto Vallarta tenía muy pocos barcos de pesca especializados, por lo que muchos pescadores alquilaban barcos de pescadores locales para llevarlos a los puntos de pesca.","En la década de 1970, la pesca deportiva se convirtió en un negocio importante en Puerto Vallarta. Se construyeron marinas y puertos deportivos para albergar barcos de pesca deportiva de todo el mundo. Los pescadores comenzaron a organizar torneos de pesca y la bahía de Banderas se convirtió en un lugar de renombre mundial para la pesca de marlin y atún.","Hoy en día, Puerto Vallarta es uno de los principales destinos de pesca deportiva en México. Los pescadores vienen de todo el mundo para experimentar la pesca de clase mundial en la bahía de Banderas y sus alrededores. Si eres un pescador experimentado o simplemente quieres probar algo nuevo, Puerto Vallarta es el lugar perfecto para experimentar la pesca deportiva en México."]
+    tags: ["pesca","deportes","turismo"]
+---

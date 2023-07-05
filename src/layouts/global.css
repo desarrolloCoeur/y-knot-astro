@@ -13,7 +13,7 @@
     @apply text-5xl text-blue-950 font-bold my-3 uppercase 
   }
   h2{
-    @apply text-4xl text-blue-950 font-semibold mt-3 mb-8 uppercase 
+    @apply text-4xl text-blue-950 font-bold mt-3 mb-8 uppercase 
   }
   h3{
     @apply text-2xl text-blue-950 font-semibold my-3  
