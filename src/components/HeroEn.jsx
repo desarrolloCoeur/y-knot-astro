@@ -16,20 +16,20 @@ export default function MySwiper() {
     }, []);
 
     
-    const heroData = {    "tours": [
+    const heroData = { "tours": [
         {
-            "imageSlider": "/img/kayak-hero.jpg",
-            "title": "Kayak en el Oceano",
-            "slug": "kayak-en-la-bahia"
+            "imageSlider":"/img/kayak-hero.jpg",
+            "title": "Kayak in the Bay",
+            "slug": "kayak-in-the-bay"
         },
         {
-            "imageSlider": "/img/ballenas-hero.jpg",
-            "title": "Avistamiendo de Ballenas",
-            "slug": "avistamiento-de-ballenas"
-        },            {
-            "imageSlider": "/img/marietas.jpg",
-            "title": "Islas Marietas",
-            "slug": "islas-marietas"
+            "imageSlider":"/img/ballenas-hero.jpg",
+            "title": "Whale Watching",
+            "slug": "whale-watching"
+        }, {
+            "imageSlider":"/img/marietas.jpg",
+            "title": "Marietas Islands",
+            "slug": "marietas-islands"
         }
     ]}
 
@@ -55,10 +55,10 @@ export default function MySwiper() {
                                     {t.title}
                                 </h2>
                                 <a
-                                    href={`/es/tour/${t.slug}`}
+                                    href={`/en/tour/${t.slug}`}
                                     class="btn-primary w-fit text-xl text-center "
                                 >
-                                    RESERVAR AHORA!
+                                    BOOK NOW!
                                 </a>
                             </div>
                         </div>

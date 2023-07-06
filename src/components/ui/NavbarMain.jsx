@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 
-const NavbarMain = ({inicio, pesca, tours, ubicaciones, nosotros, contacto, lang}) => {
+const NavbarMain = ({inicio, pesca, tours, ubicaciones, nosotros, contacto, lang, linkPesca, linkTour, linkLocation, linkAbout, linkContact}) => {
     const [isTourOpen, setTourOpen] = useState(false);
     const [isTourOpenMobile, setTourOpenMobile] = useState(false);
     const [isMenuOpen, setMenuOpen] = useState(false);
@@ -48,11 +48,11 @@ const NavbarMain = ({inicio, pesca, tours, ubicaciones, nosotros, contacto, lang
                     </div>
                     <div class="md:flex items-center gap-7 uppercase hidden ">
                         <a href={`/${lang}`}>{inicio}</a>
-                        <a href="/es/pesca-deportiva">{pesca}</a>
+                        <a href={linkPesca}>{pesca}</a>
                         <button onClick={toggleTours} class="uppercase">{tours}</button>
-                        <a href="/es/ubicacion">{ubicaciones}</a>
-                        <a href="/es/nosotros">{nosotros}</a>
-                        <a href="/es/contacto">{contacto}</a>
+                        <a href={linkLocation}>{ubicaciones}</a>
+                        <a href={linkAbout}>{nosotros}</a>
+                        <a href={linkContact}>{contacto}</a>
                     </div>
                     <div class="md:hidden">
                     <a class="menu-btn" onClick={() => toggleMenu()}>

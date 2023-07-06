@@ -14,13 +14,13 @@ const {title} = Astro.props;
 ---
 
 <>
-<h2 class="text-center md:text-left">{title}</h2>
+<h1 class="text-center md:text-left container mx-auto my-10">{title}</h1>
 <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
     {location.map((ubi) => {
         const fullLink = ubi.slug;
         const parts = fullLink.split('/');
         const link = parts[1]; 
-        const langLocation = lang === 'es' ? 'ubicacion' : 'locations'
+        const langLocation = lang === 'es' ? 'ubicacion' : 'location'
         return (
             <div
                 class="w-10/12 mx-auto text-center md:text-left md:w-full"

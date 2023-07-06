@@ -1,8 +1,13 @@
 ---
+import { Icon } from 'astro-icon'
 
+import { getLangFromUrl } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const text = lang === 'es' ? 'Enviar WhatsApp' : 'Send WhatsApp';
 ---
 <a href="https://wa.me/+523221351204" target='_blank'>
-    <div class='bg-blue-950 text-white text-base fixed bottom-3 right-[4%] z-10 flex flex-row items-center p-2 rounded-md gap-1 uppercase font-semibold'>
-        <!-- <FaWhatsapp class='text-white text-2xl'/> --> Enviar WhatsApp
+    <div class='bg-blue-950 text-white text-base fixed bottom-3 right-[4%] z-10 flex flex-row items-center p-2 rounded-md gap-1 uppercase font-semibold transition-all hover:scale-[1.1]'>
+        <Icon name="ri:whatsapp-fill"  class="h-7  text-white"/>
+        {text}
     </div>
 </a>

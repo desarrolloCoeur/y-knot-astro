@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { Icon } from 'astro-icon';
 
 
 const lang = getLangFromUrl(Astro.url);
@@ -36,7 +37,8 @@ const tours = await getCollection('tour' , ({id}) => {
 
                     <div class="px-5 pb-10 pt-2 ">
                         <h3>{tour.data.title}</h3>
-                        <div class="flex gap-5 flex-row mb-2 -mt-1">
+                        <div class="flex gap-1 items-center flex-row mb-2 -mt-1">
+                            <Icon name="ph:clock-fill"  class="h-5 transition-all hover:scale-[1.3]"/>
                             <label class="flex flex-row items-center gap-1"> {tour.data.time}</label>
                         </div>
                         <p>{tour.data.shortDescription}</p>
