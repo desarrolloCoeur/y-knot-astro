@@ -25,7 +25,7 @@
     @apply pb-3
   }
   body{
-    @apply text-base font-light
+    @apply text-lg font-light
   }
 
   a, button{
@@ -50,9 +50,13 @@
 }
 html {
     font-family: system-ui, sans-serif;
-
 }
+
 code {
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
         Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size: 30px !important;
 }

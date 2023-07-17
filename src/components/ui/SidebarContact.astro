@@ -28,28 +28,46 @@ window.onload = function () {
     //storing captcha so that can validate you can save it somewhere else according to your specific requirements
     code = captcha.join("");
     document.getElementById("captcha").appendChild(canv); // adds the canvas to the body element
-
+    const box = document.querySelector('#box');
+    const pElement = document.createElement('p');
+    pElement.classList.add('text-white', 'p-2', 'text-center', 'rounded-md', 'mt-5');
     document
-        .getElementById("contact-form")
-        .addEventListener("submit", function (event) {
-            event.preventDefault();
-            if (document.getElementById("cpatchaTextBox").value == code) {
-                emailjs
-                    .sendForm("default_service", "template_p30e1ne", this)
-                    .then(
-                        function () {
-                            console.log("SUCCESS!");
-                            alert('Correo Enviado');
+          .getElementById("contact-form")
+          .addEventListener("submit", function (event) {
+              event.preventDefault();
 
-                        },
-                        function (error) {
-                            console.log("FAILED...", error);
-                        }
-                    );
-            } else {
-                alert('Captcha Incorrecto');
-            }
-        });
+  
+              if (document.getElementById("cpatchaTextBox").value == code) {
+                  
+                pElement.textContent = 'Enviando...';
+                  pElement.classList.add('bg-green-500');
+                  box.appendChild(pElement);
+
+                  emailjs
+                      .sendForm("default_service", "template_8w6mrzf", this)
+                      .then(
+                          function () {
+                              pElement.textContent = 'Correo Enviado';
+                              setTimeout(function() {
+                                  box.removeChild(pElement);
+                                  pElement.classList.remove('bg-green-500');
+                              }, 5000);
+                          },
+                          function (error) {
+                              console.log("FAILED...", error);
+                          }
+                      );
+              } else {
+                  pElement.textContent = 'Captcha Incorrecto';
+                  pElement.classList.add('bg-red-500');
+                  box.appendChild(pElement);
+                  setTimeout(function() {
+                      box.removeChild(pElement);
+                      pElement.classList.remove('bg-red-500');
+                  }, 3000);
+                  
+              }
+          });
 };
 
 </script>
@@ -61,11 +79,11 @@ window.onload = function () {
         <input type="date" placeholder={t("contact.date")} name="date" required/>
         <input type="email" placeholder={t("contact.email")} name="email" required/>
         <input type="tel" placeholder={t("contact.phone")} name="phone" required/>
-        <div class="mt-3">
+        <div class="mt-3" id="box">
             <label>Complete el Captcha</label>
-            <div class="flex gap-2 items-center">
+            <div class="flex gap-2 items-center flex-wrap">
 
-                <div id="captcha"></div>
+                <div id="captcha" class="border-2 flex items-center px-3 bordedr-main"></div>
                 <input type="text" placeholder="Captcha" id="cpatchaTextBox" />
             </div>
         </div>

@@ -1,0 +1,97 @@
+---
+import { getLangFromUrl } from "../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+    const heroData = {   es : [
+        {
+            "imageSlider": "/img/image9.webp",
+            "title": "Pesca Deportiva",
+            "slug": "pesca-deportiva"
+        },
+        {
+            "imageSlider": "/img/kayak-hero.jpg",
+            "title": "Kayak en el Oceano",
+            "slug": "kayak-en-la-bahia"
+        },
+        {
+            "imageSlider": "/img/ballenas-hero.jpg",
+            "title": "Avistamiendo de Ballenas",
+            "slug": "avistamiento-de-ballenas"
+        },            {
+            "imageSlider": "/img/marietas.jpg",
+            "title": "Islas Marietas",
+            "slug": "islas-marietas"
+        }
+    ],
+    en : [
+        {
+            "imageSlider": "/img/image9.webp",
+            "title": "Sport Fishing",
+            "slug": "sport-fishing"
+        },
+        {
+            "imageSlider":"/img/kayak-hero.jpg",
+            "title": "Kayak in the Bay",
+            "slug": "kayak-in-the-bay"
+        },
+        {
+            "imageSlider":"/img/ballenas-hero.jpg",
+            "title": "Whale Watching",
+            "slug": "whale-watching"
+        }, {
+            "imageSlider":"/img/marietas.jpg",
+            "title": "Marietas Islands",
+            "slug": "marietas-islands"
+        }
+    ]
+
+    }
+
+
+---
+<div class="swiper">
+    <div class="swiper-wrapper">
+        {heroData[lang].map((t) => {
+            const divStyle = {
+                backgroundImage: `url(${t.imageSlider})`,
+            };
+            let link = t.slug == "pesca-deportiva" || "sport-fishing"?  `${lang}` : `${lang}/tour`; 
+            return (
+                <div
+                    class="bg-cover bg-center swiper-slide "
+                    style={divStyle}
+                >
+                    <div class="container w-11/12 relative min-h-[90dvh] mx-auto">
+                        <div class=" absolute bottom-10 flex items-center sm:items-start flex-col gap-1` mx-auto left-0 right-0">
+                            <h2 class="md:text-6xl font-bold shadow-md bg-slate-50 py-1 px-2 rounded-md text-center">
+                                {t.title}
+                            </h2>
+                            <a
+                                href={`/${link}/${t.slug}`}
+                                class="btn-primary w-fit text-xl text-center "
+                            >
+                                {lang == "es" ? "Ver más" : "See more"}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            );
+          })}
+    </div>
+    <div class="swiper-button-prev bg-blue-950 after:text-white rounded-md" ></div>
+    <div class="swiper-button-next bg-blue-950 after:text-white rounded-md" ></div>
+  </div>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script is:inline>
+    const swiper = new Swiper('.swiper', {
+      loop: true, // Permite el bucle infinito del swiper
+      autoplay: {
+        delay: 5000, // Tiempo de espera entre cada diapositiva (en milisegundos)
+      },
+      navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+    });
+  </script>
