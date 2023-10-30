@@ -50,6 +50,7 @@ import { Icon } from 'astro-icon'
                       .then(
                           function () {
                               pElement.textContent = 'Correo Enviado';
+                              document.getElementById("contact-form").reset();
                               setTimeout(function() {
                                   box.removeChild(pElement);
                                   pElement.classList.remove('bg-green-500');
