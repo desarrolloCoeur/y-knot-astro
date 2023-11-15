@@ -2,6 +2,7 @@
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const url = Astro.url;
 ---
 
 <script type="text/javascript">
@@ -44,10 +45,11 @@ window.onload = function () {
                   box.appendChild(pElement);
 
                   emailjs
-                      .sendForm("default_service", "template_8w6mrzf", this)
+                      .sendForm("default_service", "template_p30e1ne", this)
                       .then(
                           function () {
                               pElement.textContent = 'Correo Enviado';
+                              document.getElementById("contact-form").reset();
                               setTimeout(function() {
                                   box.removeChild(pElement);
                                   pElement.classList.remove('bg-green-500');
@@ -79,6 +81,7 @@ window.onload = function () {
         <input type="date" placeholder={t("contact.date")} name="date" required/>
         <input type="email" placeholder={t("contact.email")} name="email" required/>
         <input type="tel" placeholder={t("contact.phone")} name="phone" required/>
+        <input type="text" value={url} hidden name="page"/>
         <div class="mt-3" id="box">
             <label>Complete el Captcha</label>
             <div class="flex gap-2 items-center flex-wrap">
