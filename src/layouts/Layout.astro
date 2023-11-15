@@ -29,6 +29,15 @@ const lang = getLangFromUrl(Astro.url);
 				emailjs.init('E41yY70kzlUYTqBa9');
 			})();
 		</script>
+		<!-- Google tag (gtag.js) -->
+		<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-D48C028RV2"></script>
+		<script type="text/partytown">
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-D48C028RV2');
+		</script>
 	</head>
 	<body class="overflow-x-hidden">
 		<Navbar />
